@@ -23,4 +23,5 @@
  - Okhttp
  - retrofit
  - Hilt
+ - Exo player
  - Glide
