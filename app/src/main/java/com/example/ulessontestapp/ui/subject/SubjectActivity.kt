@@ -18,7 +18,7 @@ import com.example.ulessontestapp.util.Resource
 import com.example.ulessontestapp.util.Resource.Status
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_subjects.*
 
 @AndroidEntryPoint
 class SubjectActivity : AppCompatActivity(), RecentWatchAdapter.CharacterItemListener {
@@ -29,7 +29,7 @@ class SubjectActivity : AppCompatActivity(), RecentWatchAdapter.CharacterItemLis
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_subjects)
 
         adapter = SubjectAdapter(viewModel)
         recentWatchAdapter = RecentWatchAdapter(this)
@@ -63,7 +63,7 @@ class SubjectActivity : AppCompatActivity(), RecentWatchAdapter.CharacterItemLis
                 }
                 Status.ERROR -> {
                     loading.visibility = View.GONE
-                    showError(it.message!!)
+                    showError("Network Error: check your internet connection")
                 }
             }
         })
@@ -75,8 +75,6 @@ class SubjectActivity : AppCompatActivity(), RecentWatchAdapter.CharacterItemLis
         })
 
         viewModel.openSubjectId.observe(this, EventObserver {
-
-            Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, ChapterActivity::class.java)
             intent.putExtra(ChapterActivity.EXTRAS_CHAPTER_ID, it)

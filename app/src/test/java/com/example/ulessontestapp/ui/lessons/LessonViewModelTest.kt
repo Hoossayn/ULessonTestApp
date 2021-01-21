@@ -25,13 +25,13 @@ import org.mockito.Mockito.*
 import org.mockito.ArgumentCaptor.*
 
 @RunWith(MockitoJUnitRunner::class)
+@ExperimentalCoroutinesApi
 class LessonViewModelTest {
 
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    @ExperimentalCoroutinesApi
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
 
@@ -46,7 +46,7 @@ class LessonViewModelTest {
 
     }
 
-    @ExperimentalCoroutinesApi
+
     @Test
     fun `assert that add to recent view passes`() = mainCoroutineRule.runBlockingTest {
 

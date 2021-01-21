@@ -7,6 +7,7 @@ import com.example.ulessontestapp.data.FakeRepository
 import com.example.ulessontestapp.data.sources.repository.DefaultRepository
 import com.example.ulessontestapp.util.Resource
 import com.example.ulessontestapp.util.TestObjectUtil
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import net.bytebuddy.pool.TypePool
 import org.junit.Assert.*
@@ -26,6 +27,7 @@ import org.mockito.Mockito.*
 import org.mockito.ArgumentCaptor.*
 
 @RunWith(MockitoJUnitRunner::class)
+@ExperimentalCoroutinesApi
 class SubjectViewModelTest {
 
     @get:Rule
@@ -41,6 +43,7 @@ class SubjectViewModelTest {
     fun setup() {
         viewModel = SubjectViewModel(repository)
     }
+
 
     @Test
     fun `assert that call to network passes`() {

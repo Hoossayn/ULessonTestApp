@@ -63,22 +63,6 @@ class ChapterViewModelTest {
             MatcherAssert.assertThat(subject.data, `is`(TestObjectUtil.subjects[0]))
         }
 
-    @Test
-    fun `assert that call to open a video sets navigateToVideo live data when subject is set`() {
-        val subject = TestObjectUtil.subjects[0]
-        val lesson = TestObjectUtil.lessons[0]
-
-        viewModel.setSubject(subject)
-        viewModel.openVideo(lesson)
-
-        val topicName = subject.chapters.find { it.id == lesson.chapterId }!!.name
-
-        val videoDataToOpen = viewModel.navigateToVideo.getOrAwaitValue().getContentIfNotHandled()
-        MatcherAssert.assertThat(
-            videoDataToOpen,
-            `is`(RecentlyWatched(subject.id, subject.name, topicName, lesson.mediaUrl))
-        )
-    }
 
     @Test
     fun `assert that call to open a video doesn't set navigateToVideo live data without setting subject`() {

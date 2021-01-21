@@ -68,9 +68,8 @@ class RepositoryTest {
             verifyNoMoreInteractions(remoteDataSource, localDataSource)
         }
 
-    //verify data passed using argument captor
     @Test
-    fun `assert that when call to network is successful it should also persist the data gotten`() =
+    fun `assert that when call to network is successful it should also persist the data`() =
         mainCoroutineRule.runBlockingTest {
             `when`(remoteDataSource.getSubjectData()).thenReturn(Resource.success(TestObjectUtil.subjectDataResponse))
             `when`(localDataSource.saveSubjects(TestObjectUtil.subjects)).thenReturn(Unit)
