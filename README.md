@@ -2,10 +2,10 @@
 
 # Summary
 
- - Use MVVM using architecture components with to separate Android Framework with a clean architecture to my domain logic.
- - Use Android Databinding wih LiveData to glue ViewModel and Android
+ - Use MVVM architecture components with to separate Android Framework.
+ - Use LiveData to interact between ViewModel and views
  - Asynchronous communications implemented with KotlinX Coroutines.
- - Rest API from ComicVine
+ - Rest API from uLesson
  - Store data using Room
 
 # why mvvm 
